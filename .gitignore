@@ -18,3 +18,8 @@
 .DS_Store
 
 .elasticbeanstalk
+.ruby-version
+.ruby-gemset
+*.swp
+vendor/bundle
+.gitignore
