@@ -28,7 +28,7 @@ class UsersController < ApplicationController
                 )
             end
 
-            if cur_ip.count > Rails.application.config.ended # configure how many registrations from same ip
+            if cur_ip.count > Rails.application.config.max_connections_from_same_ip # configure how many registrations from same ip
                 return redirect_to root_path
             else
                 cur_ip.count = cur_ip.count + 1

@@ -63,6 +63,6 @@ module Prelaunchr
     config.assets.version = '1.0'
 
     config.ended = false
-    config.max_connections_from_same_id = 100
+    config.max_connections_from_same_ip = 100
   end
 end
