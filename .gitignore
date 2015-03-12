@@ -23,3 +23,5 @@
 *.swp
 vendor/bundle
 .gitignore
+# Rubymine
+.idea
