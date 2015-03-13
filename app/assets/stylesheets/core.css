@@ -1,3 +1,6 @@
+@charset "utf-8";
+@import url("http://fonts.googleapis.com/css?family=Roboto+Condensed");
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -12,6 +15,7 @@
  *= require_self
  */
 
+/* Harry's - Start */
 
 form{
 	margin-bottom: 0;
@@ -686,43 +690,194 @@ only screen and (min-device-pixel-ratio: 2) {
 	}
 }
 
+/* Clixxie Start */
+
+body {
+	font-family: 'Roboto Condensed', sans-serif;
+	text-align:center;
+	padding:0; margin: 0;
+    background-color: #fff;
+}
+#main {
+	background: url(/assets/ben/background.jpg) no-repeat center top;
+	background-size:cover;
+	color:#fff;
+}
+#header {
+    padding: 30px 100px;
+}
+.header-links {
+    float: right;
+    line-height: 50px;
+    font-size: 24px;
+}
+.header-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0px 20px;
+}
+#header-logo {
+	background-image: url(/assets/ben/logo-polapix-white.png);
+	background-repeat: no-repeat;
+	height: 56px;
+	width: 197px;
+}
+#textfield {
+    width: 690px;
+	margin: 20px auto;
+    height: 88px;
+}
+#textfield > *
+{
+    float: left;
+    height: 88px;
+    margin: 0px;
+}
+.iphone-screen {
+	background-image: url(/assets/ben/iphone_screenshot.png);
+	background-repeat: no-repeat;
+    background-position: center center;
+	height: 354px;
+	width: 173px;
+}
+.polapix-count {
+	background-image: url(/assets/ben/bg-polapix-numbercount.png);
+	height: 66px;
+	width: 54px;
+    margin: 1px;
+    font-size: 48px;
+}
+#contact-us {
+	background-color: #016898;
+	color: #FFF;
+}
+#contact-us a {
+    margin: 0px 20px;
+}
+#photos-row {
+	background-image: url(/assets/ben/image-examples-1280.jpg);
+	background-repeat: repeat-x;
+	background-position: center;
+	height: 320px;
+    clear: both;
+}
+
+#about-us, #product-info, #contact-us, #impressum, #game-rules, #polapix-logo-color, #madeinby {padding-top: 36px; padding-bottom: 44px; clear: both;}
 
 
+#textfield-text {
+	background-image: url(/assets/ben/input-textarea-bg.png);
+	width: 407px;
+}
+#textfield-text input {
+    width: 90%;
+    margin: 5px auto;
+    line-height: 75px;
+    border: 0px;
+    font-size: 24px;
+    text-align: center;
+}
+#textfield-button {
+	background-image: url(/assets/ben/input-button-bg.png);
+	width: 283px;
+    border: 0px;
+    background-color: transparent;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+#textfield-button:hover {
+    color: #016898;
+}
 
 
+#blue-area {
+	background-image: url(/assets/ben/blue-bg-alpha.png);
+	background-repeat: repeat;
+	color:#fff;
+    padding: 20px 5%;
+    height: 360px;
+}
+#blue-area > * {
+    float: left;
+}
+.countdowns {
+    padding: 50px 0px;
+}
+.countdowns .counter {}
+.countdowns .counter * {
+    display: inline-block;
+}
+.countdowns .counter h2 {
+    margin-right: 20px;
+}
+.countdowns .timer h2 {
+    font-size: 30px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+}
+.countdowns .timer .stoppuhr {
+    font-size: 96px;
+    text-align: left;
+}
+h1,h2,h3,h4 {font-weight:normal; line-height: 1; /* padding:0; margin: 0; */}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+h1 {font-size: 70px;}
+#polapix-logo-color {
+	background-image: url(/assets/ben/logo-polapix-color.png);
+	height: 88px;
+	background-repeat: no-repeat;
+    background-position: center center;
+}
+#madeinby {
+    background-image: url(/assets/ben/bavariastamp.png);
+    height: 88px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+#product-info > div {
+    margin: 0px auto;
+    width: 70%;
+    padding: 20px;
+}
+.product-info-spot {
+    display: inline-block;
+}
+.product-info-spot-graphic {
+    height: 100px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.product-info-spot-description {
+}
+.product-info-dimensions {
+    float: left;
+    height: 230px;
+}
+.dimensions-graphic {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url(/assets/ben/img-dimension-polapix-phone.png);
+}
+.dimensions-description {
+    padding: 20px;
+    text-align: right;
+}
+.gloss {
+    background-image: url(/assets/ben/img-detail-gloss.png);
+}
+.texture {
+    background-image: url(/assets/ben/img-detail-texture.png);
+}
+.thick {
+    background-image: url(/assets/ben/img-detail-thick.png);
+}
+.drittel {
+    width: 30%;
+}
+.zweidrittel {
+    width: 60%;
+}
+.halb {
+    width: 45%;
+}

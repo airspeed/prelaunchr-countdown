@@ -5,13 +5,13 @@
 <!--[if IE 9 ]>    <html class="ie9 <%= @bodyId %>"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="<%= @bodyId %>"> <!--<![endif]-->
 <head>
-        <title>Harry&#8217;s &ndash; Tell Friends, Shave for Free</title>
+        <title>Polapix</title>
         <link rel="icon" href="<%= asset_path('favicon.ico') %>" type="image/x-icon">
         <link rel="shortcut icon" href="<%= asset_path('favicon.ico') %>" type="image/x-icon">
 
-        <meta property="og:title" content="Harry’s is coming!"/>
-        <meta property="og:description" content="Shaving is evolving. Didn’t want to leave you all behind. Check out Harry’s here."/>
-        <meta property="og:image" content="<%= asset_path("refer/truman.png") %>"/>
+        <meta property="og:title" content="Polapix is coming!"/>
+        <meta property="og:description" content="Coming soon to your iPhone."/>
+        <meta property="og:image" content="<%= asset_path("ben/bavariastamp.png") %>"/>
         <meta property="og:url" content="<%= root_url %>"/>
         <% if @is_mobile %>
             <% if @bodyId == 'home' %>
@@ -24,9 +24,69 @@
         <%= csrf_meta_tags %>
 </head>
 <body id="<%= @bodyId %>">
-
-<%= yield %>
-
-
+    <div id="container">
+      <div id="main">
+        <div id="header">
+          <div class="header-links">
+            <a href="#product-info">Productinfo</a>
+            <a href="#about-us">About Us</a>
+            <a href="#contact-us">Contact</a>
+            <a href="#game-rules">Game Rules</a>
+          </div>
+          <div id="header-logo"></div>
+        </div>
+        <%= yield %>
+      </div>
+      <div id="product-info">
+        <h4>Available in short time in the App Store</h4>
+        <img src="/assets/ben/icon-appstore.png" width="135" height="39" />
+        <h1>Product Info</h1>
+        <h3>Some description of the product</h3>
+        <div>
+          <div class="product-info-spot drittel">
+            <div class="product-info-spot-graphic gloss"></div>
+            <div class="product-info-spot-description">Glossy</div>
+          </div>
+          <div class="product-info-spot drittel">
+            <div class="product-info-spot-graphic texture"></div>
+            <div class="product-info-spot-description">Textures</div>
+          </div>
+          <div class="product-info-spot drittel">
+            <div class="product-info-spot-graphic thick"></div>
+            <div class="product-info-spot-description">Thick paper</div>
+          </div>
+        </div>
+        <div>
+          <div class="product-info-dimensions dimensions-graphic halb"></div>
+          <div class="product-info-dimensions dimensions-description halb">Describe the product dimensions.</div>
+        </div>
+      </div>
+      <div id="photos-row">
+      </div>
+      <div id="about-us">
+        <h1>About us</h1>
+        <h3>Write about clixxie!</h3>
+      </div>
+      <div id="contact-us">
+        <h1>Contact us</h1>
+        <a href="http://facebook.com/clixxie"><img src="/assets/ben/icon-fb-white.png" width="42" height="40" /></a>
+        <a href="http://instagram.com/clixxie"><img src="/assets/ben/icon-insta-white.png" width="42" height="40" /></a>
+        <a href="http://twitter.com/femory"><img src="/assets/ben/icon-twitter-white.png" width="42" height="40" /></a>
+        <a href="http://plus.google.com/+ClixxieDeu"><img src="/assets/ben/icon-gplus-white.png" width="42" height="40" /></a>
+        <a href="mailto:kontakt@clixxie.de"><img src="/assets/ben/icon-mail-white.png" width="42" height="40" /></a>
+      </div>
+      <div id="game-rules">
+        <h1>Game rules</h1>
+        <h3>Describe the game rules here.</h3>
+      </div>
+      <div id="polapix-logo-color">
+      </div>
+      <div id="madeinby">
+      </div>
+      <div id="impressum">
+        <h1>Impressum</h1>
+        <h3>Our impressum comes here.</h3>
+      </div>
+    </div>
 </body>
 </html>
