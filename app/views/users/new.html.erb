@@ -24,7 +24,41 @@
     </div>
     <div class="timer">
       <h2 class="drittel">time left:</h2>
-      <div class="stoppuhr">20d 15h 40m</div>
+      <div id="stoppuhr" class="stoppuhr">20d 15h 40m</div>
     </div>
   </div>
 </div>
+<script type="text/jsx">
+    var Timer = React.createClass({
+        getInitialState: function() {
+            return { secondsRemaining: new Date(this.props.startDate) - new Date() };
+        },
+        tick: function() {
+            this.setState({secondsRemaining: this.state.secondsRemaining - 1000});
+        },
+        componentDidMount: function() {
+            this.interval = setInterval(this.tick, 1000);
+        },
+        componentWillUnmount: function() {
+            clearInterval(this.interval);
+        },
+        render: function() {
+            return (
+                    <div>{this.formatDate( this.state.secondsRemaining )}</div>
+            );
+        },
+        formatDate: function( secondsRemaining ) {
+            // format the date
+            var s = 1000,
+                    m = 60 * s,
+                    h = 60 * m,
+                    d = 24 * h;
+                    var ds = Math.floor( secondsRemaining / d );
+                    var hs = Math.floor( ( secondsRemaining - d * ds ) / h );
+                    var ms = Math.floor( ( secondsRemaining - d * ds - h * hs ) / m );
+                    var ss = Math.floor( ( secondsRemaining - d * ds - h * hs - m * ms ) / s );
+            return ds.toString() + "d " + hs.toString() + "h " + ms.toString() + "m " + ss.toString() + "s";
+        }
+    });
+    React.render(<Timer startDate = '2015-03-14'/>, document.getElementById('stoppuhr'));
+</script>
