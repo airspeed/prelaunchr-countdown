@@ -251,7 +251,7 @@ html.home{
 }
 
 .brandon{
-	font-family: "Brandon Grotesque", "brandon-grotesque", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+	/* font-family: "Brandon Grotesque", "brandon-grotesque", "HelveticaNeue", "Helvetica", "Arial", sans-serif; */
 }
 
 #refer{
@@ -259,10 +259,12 @@ html.home{
 }
 
 #refer .page-content{
+    /*
 	width: 1120px;
 	margin: 0 auto;
 	z-index: 0;
 	position: relative;
+	*/
 }
 
 #refer .header{
@@ -410,13 +412,18 @@ html.home{
 
 #refer .prizes{
 	width: 100%;
+    /*
 	background: #FFF;
 	border-top: 1px solid #D2D1C8;
 	padding-bottom: 100px;
+	*/
+    clear: both;
 }
 
 #refer .prizes .page-content{
+    /*
 	position: relative;
+	*/
 }
 
 #refer .prizes .callout{
@@ -453,49 +460,50 @@ html.home{
 	background-size: 1px 4px;
 }
 
-#refer .prize-two .progress .mover .bar{ width: 312px; }
-#refer .prize-three .progress .mover .bar{ width: 566px; }
-#refer .prize-four .progress .mover .bar{ width: 820px; }
-#refer .prize-five .progress .mover .bar{ width: 1120px; }
-
+#refer .prize-two .progress .mover .bar{ width: 20%; }
+#refer .prize-three .progress .mover .bar{ width: 40%; }
+#refer .prize-four .progress .mover .bar{ width: 60%; }
+#refer .prize-five .progress .mover .bar{ width: 80%; }
+#refer .prize-six .progress .mover .bar{ width: 99%; }
 
 #refer .prizes ul.products{
+    /*
 	height: 105px;
 	width: 100%;
 	margin-top: 30px;
 	position: relative;
 	z-index: 1;
+	*/
+    font-size: 24px;
 }
 
 #refer .prizes .products li.title{
-	height: 100%;
-	text-transform: uppercase;
-	color: #074E6F;
-	font-weight: 500;
-	font-size: 14px;
 	float: left;
-	margin-right: 68px;
-	width: 165px;
-	font-weight: bold;
+    list-style-type: none;
 }
 
 #refer .prizes .products li.title .friends{
+    /*
 	margin-top: 7px;
 	letter-spacing: 2px;
+	*/
 }
 
 #refer .prizes .products li.title .rewards{
+    /*
 	margin-top: 45px;
 	letter-spacing: 2px;
+	*/
 }
 
 #refer .prizes .products li.product{
+    /*
 	height: 100%;
 	color: #074E6F;
-	width: 125px;
-	margin-right: 129px;
 	float: left;
 	position: relative;
+	*/
+    float: left;
 }
 
 #refer .prizes .products li.product .circle{
@@ -584,12 +592,14 @@ html.home{
 }
 
 #refer .prizes p.place{
+    /*
 	text-align: center;
 	font-size: 16px;
 	color: #074E6F;
 	width: 100%;
 	font-weight: 500;
 	margin-top: 30px;
+	*/
 }
 
 #refer .prizes p.place span{
@@ -606,12 +616,14 @@ html.home{
 }
 
 #refer .prizes p.ship{
+    /*
 	text-align: center;
 	font-size: 16px;
 	color: #858181;
 	width: 100%;
 	font-weight: 500;
 	margin-top: 50px;
+	*/
 }
 
 #refer .prizes a.policy{
@@ -880,4 +892,109 @@ h1 {font-size: 70px;}
 }
 .halb {
     width: 45%;
+}
+
+/* User#referer specific */
+.referral_code {
+    font-size: 18px !important;
+}
+.social-links {
+    height: 88px;
+}
+.social-links a {
+    color: #000;
+    display: inline-block;
+    padding: 20px 10px;
+}
+.bg-polapix-many, .bg-polapix-one, .bg-polapix-surprise, .bg-circle-white {
+    background-position: center center;
+    background-repeat: no-repeat;
+    font-size: 24px;
+    line-height: 60px;
+}
+.bg-polapix-one {
+    background-image: url(/assets/ben/bg-polapix-1.png);
+}
+.bg-polapix-many {
+    background-image: url(/assets/ben/bg-polapix-2.png);
+}
+.bg-polapix-surprise {
+    background-image: url(/assets/ben/bg-circle-present.png);
+}
+.bg-circle-white {
+    color: #000;
+    background-image: url(/assets/ben/bg-circle-white.png);
+}
+.bg-circle-white.selected {
+    color: #0f0;
+    background-image: url(/assets/ben/bg-circle-white.png);
+}
+.friends-collected, .free-polaroids {
+    clear: both;
+    height: 60px;
+}
+.friends-collected > div, .free-polaroids > div {
+    width: 60px;
+    height: 60px;
+    margin: 0px 5%;
+    float: left;
+}
+.friends-collected > div.title, .free-polaroids > div.title {
+    text-align: left;
+    /*
+    vertical-align: middle;
+    position: relative;
+    */
+    font-size: 24px;
+}
+.friends-collected > div.title > span, .free-polaroids > div.title > span {
+    /*
+    position: absolute;
+    top: 20%;
+    */
+}
+.stats {
+    clear: both;
+    padding: 3%;
+}
+.stats > div {
+    display: inline-block;
+    font-size: 40px;
+}
+.stats > div:first-child {
+    text-align: left;
+}
+.stats > div:last-child {
+    text-align: right;
+}
+.stats > div > .title {
+    font-size: 24px;
+}
+.progress-bar {
+    padding: 10px 5%;
+}
+.progress-bar-bg {
+    height: 10px;
+    background-color: #fff;
+    padding: 2px 0%;
+}
+.progress-bar-progress {
+    height: 10px;
+    background-color: #016898;
+    width: 5%;
+}
+.progress-bar-progress.one {
+    width: 20%;
+}
+.progress-bar-progress.two {
+    width: 40%;
+}
+.progress-bar-progress.three {
+    width: 60%;
+}
+.progress-bar-progress.four {
+    width: 80%;
+}
+.progress-bar-progress.five {
+    width: 100%;
 }

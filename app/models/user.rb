@@ -12,27 +12,33 @@ class User < ActiveRecord::Base
 
     REFERRAL_STEPS = [
         {
-            'count' => 5,
-            "html" => "Shave<br>Cream",
+            'count' => 3,
+            "html" => '<div class="bg-polapix-one">1</div>',
             "class" => "two",
             "image" =>  ActionController::Base.helpers.asset_path("refer/cream-tooltip@2x.png")
         },
         {
-            'count' => 10,
-            "html" => "Truman Handle<br>w/ Blade",
+            'count' => 6,
+            "html" => '<div class="bg-polapix-many">2</div>',
             "class" => "three",
             "image" => ActionController::Base.helpers.asset_path("refer/truman@2x.png")
         },
         {
-            'count' => 25,
-            "html" => "Winston<br>Shave Set",
+            'count' => 15,
+            "html" => '<div class="bg-polapix-many">5</div>',
             "class" => "four",
             "image" => ActionController::Base.helpers.asset_path("refer/winston@2x.png")
         },
         {
-            'count' => 50,
-            "html" => "One Year<br>Free Blades",
+            'count' => 24,
+            "html" => '<div class="bg-polapix-many">8</div>',
             "class" => "five",
+            "image" => ActionController::Base.helpers.asset_path("refer/winston@2x.png")
+        },
+        {
+            'count' => 30,
+            "html" => '<div class="bg-polapix-surprise">&nbsp;</div>',
+            "class" => "six",
             "image" => ActionController::Base.helpers.asset_path("refer/blade-explain@2x.png")
         }
     ]

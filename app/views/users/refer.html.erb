@@ -1,104 +1,133 @@
 <div>
-  <h1>Coming soon to your iPhone</h1>
-  <h2>Be the first to know</h2>
+  <h1>Invite also some friends for bonuses</h1>
+  <h2>Share this link to gain bonuses</h2>
 </div>
+
+<% referral_code = "#{root_url}?ref=#{@user.referral_code}" %>
 <div id="textfield">
   <div id="textfield-text">
-    <input type="email" placeholder="Enter your email address"/>
+    <input type="text" disabled="true" value="<%= referral_code %>" class="referral_code"/>
   </div>
-  <div id="textfield-button">Participate
+  <div id="textfield-button">
+    <% twitter_message = "#Polapix is coming. Be the first to know at @clixxie." %>
+    <div class="social-links">
+      <a href="http://www.facebook.com/sharer/sharer.php?u=<%= CGI::escape(referral_code) %>&title=polapix" target="_blank">
+        <img src="/assets/ben/icon-fb-white.png" width="42" height="40" />
+      </a>
+      <a href="http://twitter.com/share?url=<%= CGI::escape(referral_code) %>&text=<%= CGI::escape(twitter_message) %>" target="_blank">
+        <img src="/assets/ben/icon-twitter-white.png" width="42" height="40" />
+      </a>
+      <a href="https://plus.google.com/share?url=<%= CGI::escape(referral_code) %>&text=<%= CGI::escape(twitter_message) %>" target="_blank">
+        <img src="/assets/ben/icon-gplus-white.png" width="42" height="40" /></a>
+      </a>
+      <a href="mailto:oneofyourfriends@example.de?Subject=Polapix is coming&body=<%= referral_code %>">
+        <img src="/assets/ben/icon-mail-white.png" width="42" height="40" />
+      </a>
+    </div>
   </div>
 </div>
 
+<%
+   referrals_count = @user.referrals.count
+
+   stops = User::REFERRAL_STEPS
+
+   found = nil
+
+   stops.reverse_each { |stop|
+     if stop["count"] <= referrals_count and !found
+       stop["selected"] = true
+       found = stop
+     else
+       stop["selected"] = false
+     end
+   }
+%>
 <div id="blue-area">
-  <div class="iphone-screen"></div>
-  <div class="">
-    <div>Polapix left: <div class="polapix-count">1</div><div class="polapix-count">0</div><div class="polapix-count">0</div><div class="polapix-count">0</div>
+
+  <div class="prizes <% if found %>prize-<%= found["class"] %><% end %>">
+
+    <div class="friends-collected">
+      <div class="title"><span>Friends collected</span></div>
+      <% stops.each do |stop| %>
+          <div class="stops-friends <% if stop["class"] == 'six' %> last<% end %>">
+            <div class="bg-circle-white <% if stop["selected"] %>selected<% end %>">
+              <%= stop["count"] %>
+            </div>
+          </div>
+      <% end %>
     </div>
-    <div>time left:
-      20d 15h
+    <div class="progress-bar">
+      <div class="progress-bar-bg">
+        <div class="progress-bar-progress <% if found %><%= found["class"] %><% end %>"></div>
+      </div>
     </div>
+    <div class="free-polaroids">
+      <div class="title"><span>Free Polaroids</span></div>
+      <% stops.each do |stop| %>
+          <div class="stops-polaroids <% if stop["class"] == 'six' %> last<% end %>">
+            <%= stop["html"].html_safe %>
+          </div>
+      <% end %>
+    </div>
+    <div class="stats">
+      <%
+         words = ''
+         if referrals_count == 1
+           words = 'friend has'
+         elsif
+         words = 'friends have'
+         end
+
+      %>
+      <div class="drittel">
+        <div class="title">Polapix left:</div>
+        <div>1000</div>
+      </div>
+      <div class="drittel">
+        <div class="title">Friends joined:</div>
+        <div><%= referrals_count %></div>
+      </div>
+      <div class="drittel">
+        <div class="title">Time left:</div>
+        <div id="stoppuhr"></div>
+      </div>
+    </div>
+    <p class="ship">We ship to everywhere, but not Mars</p>
   </div>
+
 </div>
-
-<div class="hero">
-    <div class="page-content clearfix">
-        <div class="mammoth">
-            <span class="need brandon">Shaving Is<br>Evolving</span>
-        </div>
-        <div class="share-wrap">
-            <p class="why brandon">Don't leave your friends behind</p>
-            <p class="title brandon">INVITE FRIENDS &<br>Earn Product</p>
-            <p class="subtitle brandon">Share your unique link via email, Facebook<br>or Twitter and earn Harry's goods for<br>each friend who signs up.</p>
-            <div class="copy-link brandon"><%= root_url %>?ref=<%= @user.referral_code %></div>
-            <% twitter_message = "#Shaving is evolving. Excited for @harrys to launch." %>
-            <div class="social-links">
-                <a href="http://www.facebook.com/sharer/sharer.php?u=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@user.referral_code) %>&title=Harrys" class="fb" target="_blank"></a>
-                <div class="sep"></div>
-                <a href="http://twitter.com/share?url=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@user.referral_code) %>&text=<%= CGI::escape(twitter_message) %>" class="twit" target="_blank"></a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<% 
-    referrals_count = @user.referrals.count
-
-    stops = User::REFERRAL_STEPS
-
-    found = nil
-
-    stops.reverse_each { |stop|
-        if stop["count"] <= referrals_count and !found
-            stop["selected"] = true
-            found = stop
-        else
-            stop["selected"] = false
-        end
-    }   
- %>
-<div class="prizes <% if found %>prize-<%= found["class"] %><% end %>">
-    <div class="page-content">
-        <p class="callout brandon">Here's How It Works:</p>
-        <ul class="products clearfix">
-            <li class="title brandon"><p class="friends">Friends Joined</p><p class="rewards">Harry's Product</p></li>
-            <% stops.each do |stop| %>
-                <li class="product brandon <% if stop["selected"] %>selected<% end %> <% if stop["class"] == 'five' %>last<% end %>">
-                    <div class="circle"><%= stop["count"] %></div>
-                    <div class="sep"></div>
-                    <p><%= stop["html"].html_safe %></p>
-
-                    <div class="tooltip">
-                        <img src="<%= stop["image"] %>" height="254">
-                    </div>
-                </li>
-            <% end %>
-        </ul>
-
-        <div class="progress">
-            <div class="mover">
-                <div class="bar clearfix"></div>
-            </div>
-        </div>
-
-        <% 
-            words = ''
-            if referrals_count == 1
-                words = 'friend has'
-            elsif 
-                words = 'friends have'
-            end
-
-        %>
-
-        <% if referrals_count == 0 %>
-            <p class="place brandon"><span>No</span> friends have joined...Yet!</p>
-        <% else %>
-            <p class="place brandon"><span><%= referrals_count %></span> <%= words %> joined</p>
-        <% end %>
-        <p class="check brandon">Keep checking</p>
-
-        <p class="ship brandon">We ship to the U.S. (& Canada Soon)</p>        
-        <a class="policy brandon" href="/privacy-policy" target="_blank">Privacy Policy</a>
-    </div>
-</div>
+<script type="text/jsx">
+    var Timer = React.createClass({
+        getInitialState: function() {
+            return { secondsRemaining: new Date(this.props.startDate) - new Date() };
+        },
+        tick: function() {
+            this.setState({secondsRemaining: this.state.secondsRemaining - 1000});
+        },
+        componentDidMount: function() {
+            this.interval = setInterval(this.tick, 1000);
+        },
+        componentWillUnmount: function() {
+            clearInterval(this.interval);
+        },
+        render: function() {
+            return (
+                    <div>{this.formatDate( this.state.secondsRemaining )}</div>
+            );
+        },
+        formatDate: function( secondsRemaining ) {
+            // format the date
+            var s = 1000,
+                    m = 60 * s,
+                    h = 60 * m,
+                    d = 24 * h;
+            var ds = Math.floor( secondsRemaining / d );
+            var hs = Math.floor( ( secondsRemaining - d * ds ) / h );
+            var ms = Math.floor( ( secondsRemaining - d * ds - h * hs ) / m );
+            var ss = Math.floor( ( secondsRemaining - d * ds - h * hs - m * ms ) / s );
+            return ds.toString() + "d " + hs.toString() + "h " + ms.toString() + "m " + ss.toString() + "s";
+        }
+    });
+    React.render(<Timer startDate = '2015-05-01'/>, document.getElementById('stoppuhr'));
+</script>
