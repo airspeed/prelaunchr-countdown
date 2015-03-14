@@ -14,31 +14,31 @@ class User < ActiveRecord::Base
         {
             'count' => 3,
             "html" => '<div class="bg-polapix-one">1</div>',
-            "class" => "two",
+            "class" => "one",
             "image" =>  ActionController::Base.helpers.asset_path("refer/cream-tooltip@2x.png")
         },
         {
             'count' => 6,
             "html" => '<div class="bg-polapix-many">2</div>',
-            "class" => "three",
+            "class" => "two",
             "image" => ActionController::Base.helpers.asset_path("refer/truman@2x.png")
         },
         {
             'count' => 15,
             "html" => '<div class="bg-polapix-many">5</div>',
-            "class" => "four",
+            "class" => "three",
             "image" => ActionController::Base.helpers.asset_path("refer/winston@2x.png")
         },
         {
             'count' => 24,
             "html" => '<div class="bg-polapix-many">8</div>',
-            "class" => "five",
+            "class" => "four",
             "image" => ActionController::Base.helpers.asset_path("refer/winston@2x.png")
         },
         {
             'count' => 30,
             "html" => '<div class="bg-polapix-surprise">&nbsp;</div>',
-            "class" => "six",
+            "class" => "five",
             "image" => ActionController::Base.helpers.asset_path("refer/blade-explain@2x.png")
         }
     ]
